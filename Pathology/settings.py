@@ -90,12 +90,18 @@ WSGI_APPLICATION = "Pathology.wsgi.application"
 
 DATABASES = {
     "default": {
-        'ENGINE': 'django.db.backends.mysql',
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'lifecell',
+        # 'HOST': 'localhost',
+        # 'PORT': '3306',
+        # 'USER': 'root',
+        # 'PASSWORD': '2001',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'lifecell',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '2001',
+        'USER': 'Pratik129191',
+        'PASSWORD': 'a3P7gKTCtrmH',
+        'HOST': 'ep-restless-star-07257647.us-east-2.aws.neon.tech',
+        'PORT': '5432',
     }
 }
 
