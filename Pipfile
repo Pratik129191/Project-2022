@@ -12,6 +12,7 @@ celery = "*"
 django-filter = "*"
 reportlab = "*"
 mysqlclient = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

@@ -70,13 +70,22 @@ class TestImageSerializer(serializers.ModelSerializer):
 
 
 class TestSerializer(serializers.ModelSerializer):
-    # images = TestImageSerializer(many=True, read_only=True)
+    # image = TestImageSerializer(many=True, read_only=True)
+    # image = serializers.SerializerMethodField()
     title = serializers.SerializerMethodField()
     reviews = serializers.SerializerMethodField()
     order = serializers.SerializerMethodField()
     collection = serializers.SerializerMethodField()
 
-    # images = serializers.SerializerMethodField()
+    image = serializers.SerializerMethodField()
+
+    def get_image(self, test: models.Test):
+        image_url = test.images.get(test_id=test.id).image.url
+
+        html_img = format_html(
+            f"<img src='{image_url}' style='object-fit: cover; width: 100px; height: 100px;' />"
+        )
+        return html_img
 
     # def get_images(self, test: models.Test):
     #     queryset = test.images.filter(test_id=test.id)
@@ -118,6 +127,7 @@ class TestSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Test
         fields = [
+            'image',
             'title', 'code',
             'unit_price', 'collection',
             'reviews', 'order',
