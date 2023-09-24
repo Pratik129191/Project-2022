@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-<h1 align="center" style="font-family: 'Baskerville Old Face',cursive; font-size: 45px">Time Schedule for Dr. {{ name }}</h1>
+<h1 align="center" style="font-family: 'Baskerville Old Face',cursive; font-size: 45px">Time Schedule for {{ name }}</h1>
     <table border="3" bordercolor="#191970" cellpadding="9" align="center" style="font-size: 24px; font-family: 'Baskerville Old Face',cursive;" bgcolor="#deb887" width="750">
         <tr>
             <th>Day</th>
@@ -29,5 +29,8 @@
 
         {% endif %}
     </table>
+    <p align="center">
+        <a href="{{ back }}">Click Here to Go Back !!</a>
+    </p>
 </body>
 </html>

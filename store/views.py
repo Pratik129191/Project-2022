@@ -102,14 +102,14 @@ class DoctorViewSet(ModelViewSet):
 
     @action(detail=True, renderer_classes=[TemplateHTMLRenderer])
     def schedule(self, request: HttpRequest, **kwargs):
-        doctor = Doctor.objects
-
+        doctor = Doctor.objects.prefetch_related('timings').get(id=kwargs['pk'])
         return render(
             request,
             'doctor_schedule.html',
             {
                 'name': doctor.name(),
-                'schedule': doctor.timings.all()
+                'schedule': doctor.timings.all(),
+                'back': (reverse('store:doctors-list') + kwargs['pk'])
             }
         )
 
